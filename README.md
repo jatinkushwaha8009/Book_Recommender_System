@@ -4,6 +4,10 @@
 
 - This project is a Collaborative Filtering Recommendation System using Streamlit, simplifying book selection by recommending similar books based on user input. It provides a list of the top 10 similar books for a specific search, enhancing the reading experience.
 
+ ```bash
+    live site present in the Deployments section is just a demo of the website
+ ```
+
 ## Features
 
 - *Personalized Recommendations*: Suggests books based on user preferences and reading history.
