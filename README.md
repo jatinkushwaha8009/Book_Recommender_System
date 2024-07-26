@@ -24,11 +24,12 @@
 1. *Download the dataset:*
 
     Books.csv, Ratings.csv, Users.csv
+      ```bash
     https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset
-    
+    ```
     
 
-2. *Run the Book Recommender.ipynb:*
+3. *Run the Book Recommender.ipynb:*
 
     to place the pickle files:
 
