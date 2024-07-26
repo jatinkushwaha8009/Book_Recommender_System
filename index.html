@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('5.jpg');
+            background-size: cover;
+            color: white;
+        }
+        .running-status {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            color: limegreen;
+        }
+        
+        #recommendation-link {
+            display: none;
+            margin-top: 20px;
+            color: lightblue;
+        }
+        #recommendationButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgb(135, 135, 223);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Book Recommender System</h1>
+        <div class="form-group">
+            <label for="movie">Select or search your Book:</label>
+            <input type="text" id="movie" class="form-control" list="movieList">
+            <datalist id="movieList">
+                <option value="Titanic: The Musical">
+                <option value="Civil War">
+                <option value="Arena Wars">
+                <option value="Dragonkeeper">
+                <option value="Exposure">
+                <option value="Last County">
+                <option value="The Mandela Effect Phenomenon">
+                <option value="Rendel: Cycle Of Revenge">
+                <option value="Quad Gods">
+                <option value="Tyler Perry's Divorce in the Black">
+                <option value="Longlegs">
+                <option value="Fly Me to the Moon">
+                <option value="Touch">
+                <option value="The Inheritance">
+                <option value="Project Silence">
+                <option value="Lumina">
+                <option value="Johnny Puff: Secret Mission">
+                <option value="Sing Sing">
+                <option value="The Convert">
+                <option value="National Anthem">
+                <option value="Dandelion">
+                <option value="The Outlaws">
+                <option value="Cora Bora">
+                <option value="Descendants: The Rise of Red">
+                <option value="Faye">
+                <option value="Horizon: An American Saga">
+                <option value="Lassie: A New Adventure">
+                <option value="Tuesday">
+                <option value="The Strangers: Chapter 1">
+                <option value="The Dead Don’t Hurt">
+                <option value="The House Next Door">
+                <option value="Disciples in the Moonlight">
+                <option value="My Spy The Eternal City">
+                <option value="Lady in the Lake (series)">
+                <option value="Twisters">
+                <option value="Clear Cut">
+                <option value="Thelma">
+                <option value="The Abandon">
+                <option value="Widow Clicquot">
+                <option value="Oddity">
+                <option value="Crumb Catcher">
+                <option value="Scream Therapy">
+                <option value="Clawfoot">
+                <option value="Before Dawn">
+                <option value="Valleyheart">
+                <option value="Crossing">
+                <option value="Modernism, Inc.: The Eliot Noyes Design Story">
+                <option value="Find Me Falling">
+                <option value="Skywalkers: A Love Story">
+                <option value="The Good Half">
+            </datalist>
+        </div>
+        <button id="toggleRecommendations">Show Recommendations</button><br><br>
+
+        <div id="recommendations" class="row" style="display: none;">            
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="6.jpg" class="img-fluid" alt="Dead Sleep">
+                    <div class="book-title">Dead Sleep</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="7.jpg" class="img-fluid" alt="Move To Strike">
+                    <div class="book-title">Move To Strike</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="3.jpg" class="img-fluid" alt="Moment Of Truth">
+                    <div class="book-title">Moment Of Truth</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="7.jpg" class="img-fluid" alt="Mortal Fear">
+                    <div class="book-title">Mortal Fear</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="2.jpg" class="img-fluid" alt="The Switch">
+                    <div class="book-title">The Switch</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="6.jpg" class="img-fluid" alt="The Blue Nowhere">
+                    <div class="book-title">The Blue Nowhere</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="7.jpg" class="img-fluid" alt="B Is For Burgla">
+                    <div class="book-title">B Is For Burgla</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="3.jpg" class="img-fluid" alt="The Alienist">
+                    <div class="book-title">The Alienist</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="7.jpg" class="img-fluid" alt="Point Of Origin">
+                    <div class="book-title">Point Of Origin</div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 book">
+                    <img src="6.jpg" class="img-fluid" alt="K Is For Killer">
+                    <div class="book-title">K Is For Killer</div>
+                </div>
+            </div>
+        </div>
+        <div id="status" class="running-status">Running...</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleRecommendations');
+    const recommendations = document.getElementById('recommendations');
+    let isVisible = false;
+
+    toggleButton.addEventListener('click', function() {
+        isVisible = !isVisible;
+        recommendations.style.display = isVisible ? 'block' : 'none';
+        toggleButton.textContent = isVisible ? 'Hide Recommendations' : 'Show Recommendations';
+    });
+});
+    </script>
+</body>
+</html>
