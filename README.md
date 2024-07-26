@@ -48,17 +48,17 @@ To run this model, you need to have Python and streamlit installed on your syste
 
     Ensure you are in the project directory:
 
-    bash
+    ```bash
     pip install streamlit
-    
+    ```
 
 2. *Run the Script:*
 
     Start the model by running the script:
 
-    bash
+    ```bash
     streamlit run app.py
-    
+    ```
 
 3. *Instructions:*
 
